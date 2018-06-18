@@ -21,7 +21,6 @@ namespace Entidad
         public string UsuarioID { get; set; }
         public System.DateTime Fecha { get; set; }
     
-        public virtual Cliente Cliente { get; set; }
         public virtual Estado Estado { get; set; }
         public virtual Plato Plato { get; set; }
         public virtual Usuario Usuario { get; set; }

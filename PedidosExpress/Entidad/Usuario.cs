@@ -25,6 +25,8 @@ namespace Entidad
         public string Contraseña { get; set; }
         public string NombreUsusario { get; set; }
         public Nullable<bool> HabilitadoS_N { get; set; }
+        public string Telefono { get; set; }
+        public string Direccion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Pedido> Pedido { get; set; }

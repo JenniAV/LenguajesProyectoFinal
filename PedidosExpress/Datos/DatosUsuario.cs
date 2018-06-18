@@ -38,7 +38,7 @@ namespace Datos
             return true;
         }
 
-        public Boolean ModificarPlato(Usuario newUser, int id)
+        public Boolean ModificarUsuario(Usuario newUser, int id)
         {
             Usuario usuario = BuscarUsuario(id);
 

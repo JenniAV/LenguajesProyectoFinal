@@ -48,9 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="Cliente.cs">
-      <DependentUpon>Data.tt</DependentUpon>
-    </Compile>
     <Compile Include="Data.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

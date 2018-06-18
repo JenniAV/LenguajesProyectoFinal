@@ -25,7 +25,6 @@ namespace Entidad
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<Estado> Estado { get; set; }
         public virtual DbSet<Pedido> Pedido { get; set; }
         public virtual DbSet<Plato> Plato { get; set; }

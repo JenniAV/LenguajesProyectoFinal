@@ -4,16 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="LenguajesProyectoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Cliente">
-          <Key>
-            <PropertyRef Name="ClienteID" />
-          </Key>
-          <Property Name="Telefono" Type="nchar" MaxLength="10" />
-          <Property Name="NombreCliente" Type="nvarchar" MaxLength="30" />
-          <Property Name="Direccion" Type="nchar" MaxLength="10" />
-          <Property Name="ClienteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-        </EntityType>
+    <Schema Namespace="LenguajesProyectoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Estado">
           <Key>
             <PropertyRef Name="EstadoID" />
@@ -27,7 +18,6 @@
           </Key>
           <Property Name="PedidoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PlatoID" Type="int" />
-          <Property Name="CleinteID" Type="int" Nullable="false" />
           <Property Name="EstadoID" Type="tinyint" Nullable="false" />
           <Property Name="UsuarioID" Type="nvarchar" MaxLength="50" />
           <Property Name="Fecha" Type="date" Nullable="false" />
@@ -39,8 +29,8 @@
           <Property Name="PlatoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Descripcion" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="Precio" Type="money" Nullable="false" />
-          <Property Name="Fotografia" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="DisponibleS/N" Type="bit" />
+          <Property Name="Fotografia" Type="image" Nullable="false" />
           <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -65,23 +55,13 @@
             <PropertyRef Name="UsuarioID" />
           </Key>
           <Property Name="UsuarioID" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="TipoUsuarioID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoUsuarioID" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Contraseña" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="NombreUsusario" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="8" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="10" />
           <Property Name="HabilitadoS/N" Type="bit" />
         </EntityType>
-        <Association Name="FK_Pedido_Cliente1">
-          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
-          <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cliente">
-              <PropertyRef Name="ClienteID" />
-            </Principal>
-            <Dependent Role="Pedido">
-              <PropertyRef Name="CleinteID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Pedido_Estado">
           <End Role="Estado" Type="Self.Estado" Multiplicity="1" />
           <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
@@ -131,17 +111,12 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="LenguajesProyectoModelStoreContainer">
-          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Estado" EntityType="Self.Estado" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pedido" EntityType="Self.Pedido" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Plato" EntityType="Self.Plato" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tipo_Usuario" EntityType="Self.Tipo_Usuario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Pedido_Cliente1" Association="Self.FK_Pedido_Cliente1">
-            <End Role="Cliente" EntitySet="Cliente" />
-            <End Role="Pedido" EntitySet="Pedido" />
-          </AssociationSet>
           <AssociationSet Name="FK_Pedido_Estado" Association="Self.FK_Pedido_Estado">
             <End Role="Estado" EntitySet="Estado" />
             <End Role="Pedido" EntitySet="Pedido" />
@@ -159,21 +134,10 @@
             <End Role="Usuario" EntitySet="Usuario" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LenguajesProyectoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Cliente">
-          <Key>
-            <PropertyRef Name="ClienteID" />
-          </Key>
-          <Property Name="Telefono" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="NombreCliente" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Direccion" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="ClienteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="Pedido" Relationship="Self.FK_Pedido_Cliente1" FromRole="Cliente" ToRole="Pedido" />
-        </EntityType>
         <EntityType Name="Estado">
           <Key>
             <PropertyRef Name="EstadoID" />
@@ -192,7 +156,6 @@
           <Property Name="EstadoID" Type="Byte" Nullable="false" />
           <Property Name="UsuarioID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="Cliente" Relationship="Self.FK_Pedido_Cliente1" FromRole="Pedido" ToRole="Cliente" />
           <NavigationProperty Name="Estado" Relationship="Self.FK_Pedido_Estado" FromRole="Pedido" ToRole="Estado" />
           <NavigationProperty Name="Plato" Relationship="Self.FK_Pedido_Plato" FromRole="Pedido" ToRole="Plato" />
           <NavigationProperty Name="Usuario" Relationship="Self.FK_Pedido_Usuario" FromRole="Pedido" ToRole="Usuario" />
@@ -204,7 +167,7 @@
           <Property Name="PlatoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Precio" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="Fotografia" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Fotografia" Type="String" MaxLength="Max" FixedLength="false" Nullable="false" />
           <Property Name="DisponibleS_N" Type="Boolean" />
           <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Pedido" Relationship="Self.FK_Pedido_Plato" FromRole="Plato" ToRole="Pedido" />
@@ -238,19 +201,9 @@
           <Property Name="HabilitadoS_N" Type="Boolean" />
           <NavigationProperty Name="Pedido" Relationship="Self.FK_Pedido_Usuario" FromRole="Usuario" ToRole="Pedido" />
           <NavigationProperty Name="Tipo_Usuario" Relationship="Self.FK_USUARIO_TIPO_USUARIO" FromRole="Usuario" ToRole="Tipo_Usuario" />
+          <Property Name="Telefono" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="Direccion" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
         </EntityType>
-        <Association Name="FK_Pedido_Cliente1">
-          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
-          <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cliente">
-              <PropertyRef Name="ClienteID" />
-            </Principal>
-            <Dependent Role="Pedido">
-              <PropertyRef Name="CleinteID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Pedido_Estado">
           <End Role="Estado" Type="Self.Estado" Multiplicity="1" />
           <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
@@ -300,17 +253,12 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="BDLenguajesProyectoEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Cliente" EntityType="Self.Cliente" />
           <EntitySet Name="Estado" EntityType="Self.Estado" />
           <EntitySet Name="Pedido" EntityType="Self.Pedido" />
           <EntitySet Name="Plato" EntityType="Self.Plato" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Tipo_Usuario" EntityType="Self.Tipo_Usuario" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" />
-          <AssociationSet Name="FK_Pedido_Cliente1" Association="Self.FK_Pedido_Cliente1">
-            <End Role="Cliente" EntitySet="Cliente" />
-            <End Role="Pedido" EntitySet="Pedido" />
-          </AssociationSet>
           <AssociationSet Name="FK_Pedido_Estado" Association="Self.FK_Pedido_Estado">
             <End Role="Estado" EntitySet="Estado" />
             <End Role="Pedido" EntitySet="Pedido" />
@@ -334,16 +282,6 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="LenguajesProyectoModelStoreContainer" CdmEntityContainer="BDLenguajesProyectoEntities">
-          <EntitySetMapping Name="Cliente">
-            <EntityTypeMapping TypeName="LenguajesProyectoModel.Cliente">
-              <MappingFragment StoreEntitySet="Cliente">
-                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
-                <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
-                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
-                <ScalarProperty Name="ClienteID" ColumnName="ClienteID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Estado">
             <EntityTypeMapping TypeName="LenguajesProyectoModel.Estado">
               <MappingFragment StoreEntitySet="Estado">
@@ -357,7 +295,6 @@
               <MappingFragment StoreEntitySet="Pedido">
                 <ScalarProperty Name="PedidoID" ColumnName="PedidoID" />
                 <ScalarProperty Name="PlatoID" ColumnName="PlatoID" />
-                <ScalarProperty Name="CleinteID" ColumnName="CleinteID" />
                 <ScalarProperty Name="EstadoID" ColumnName="EstadoID" />
                 <ScalarProperty Name="UsuarioID" ColumnName="UsuarioID" />
                 <ScalarProperty Name="Fecha" ColumnName="Fecha" />
@@ -398,6 +335,8 @@
           <EntitySetMapping Name="Usuario">
             <EntityTypeMapping TypeName="LenguajesProyectoModel.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
                 <ScalarProperty Name="UsuarioID" ColumnName="UsuarioID" />
                 <ScalarProperty Name="TipoUsuarioID" ColumnName="TipoUsuarioID" />
                 <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
@@ -420,7 +359,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
