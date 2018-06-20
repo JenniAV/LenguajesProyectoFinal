@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="Presentacion.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Inicio_Cocina.aspx.cs" Inherits="Presentacion.WebForm1" %>
 
 <!DOCTYPE html>
 
