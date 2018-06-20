@@ -23,9 +23,9 @@ namespace Entidad
         public int PlatoID { get; set; }
         public string Descripcion { get; set; }
         public decimal Precio { get; set; }
-        public string Fotografia { get; set; }
-        public Nullable<bool> DisponibleS_N { get; set; }
         public string Nombre { get; set; }
+        public byte[] Fotografia { get; set; }
+        public bool Disponible { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Pedido> Pedido { get; set; }

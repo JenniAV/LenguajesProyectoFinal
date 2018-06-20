@@ -10,18 +10,10 @@
 namespace Entidad
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Pedido
+    public partial class sp_helpdiagramdefinition_Result
     {
-        public int PedidoID { get; set; }
-        public Nullable<int> PlatoID { get; set; }
-        public byte EstadoID { get; set; }
-        public string UsuarioID { get; set; }
-        public System.DateTime Fecha { get; set; }
-    
-        public virtual Estado Estado { get; set; }
-        public virtual Plato Plato { get; set; }
-        public virtual Usuario Usuario { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

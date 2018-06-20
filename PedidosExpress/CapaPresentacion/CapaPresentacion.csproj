@@ -8,12 +8,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{149EAA92-FB8F-4ED6-A5F2-C54BE7DAC654}</ProjectGuid>
+    <ProjectGuid>{7A06ABFB-594F-4DFA-A662-10A5E6C8EEA2}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Presentacion</RootNamespace>
-    <AssemblyName>Presentacion</AssemblyName>
+    <RootNamespace>CapaPresentacion</RootNamespace>
+    <AssemblyName>CapaPresentacion</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -72,8 +72,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="WebForm1.aspx" />
     <None Include="packages.config" />
+    <Content Include="PaginaMaestra.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -82,21 +82,25 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Insertar.aspx" />
     <Content Include="Web.config" />
-<<<<<<< HEAD
-=======
-    <Content Include="Inicio_Cocina.aspx" />
->>>>>>> 0b217343737a7bcb5f013564c292a3a2bdddb826
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Inicio_Cocina.aspx.cs">
-      <DependentUpon>Inicio_Cocina.aspx</DependentUpon>
+    <Compile Include="PaginaMaestra.Master.cs">
+      <DependentUpon>PaginaMaestra.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Inicio_Cocina.aspx.designer.cs">
-      <DependentUpon>Inicio_Cocina.aspx</DependentUpon>
+    <Compile Include="PaginaMaestra.Master.designer.cs">
+      <DependentUpon>PaginaMaestra.Master</DependentUpon>
     </Compile>
+    <Compile Include="Insertar.aspx.cs">
+      <DependentUpon>Insertar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Insertar.aspx.designer.cs">
+      <DependentUpon>Insertar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Datos\Datos.csproj">
@@ -125,9 +129,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>65458</DevelopmentServerPort>
+          <DevelopmentServerPort>55640</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:65458/</IISUrl>
+          <IISUrl>http://localhost:55640/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+﻿// La generación de código T4 está habilitada para el modelo 'C:\Users\PC Acer\source\repos\LenguajesProyectoFinal\LenguajesProyectoFinal\PedidosExpress\Datos\Data.edmx'. 
+=======
 ﻿// La generación de código T4 está habilitada para el modelo 'C:\Users\PC Acer\Source\Repos\LenguajesProyectoFinal\LenguajesProyectoFinal\PedidosExpress\Datos\Data.edmx'. 
+>>>>>>> 0b217343737a7bcb5f013564c292a3a2bdddb826
 // Para habilitar la generación de código heredada, cambie el valor de la propiedad del diseñador 'Estrategia de generación de código'
 // por 'ObjectContext heredado'. Esta propiedad está disponible en la ventana Propiedades cuando se abre
 // el modelo en el diseñador.

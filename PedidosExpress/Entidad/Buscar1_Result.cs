@@ -10,18 +10,14 @@
 namespace Entidad
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Pedido
+    public partial class Buscar1_Result
     {
-        public int PedidoID { get; set; }
-        public Nullable<int> PlatoID { get; set; }
-        public byte EstadoID { get; set; }
-        public string UsuarioID { get; set; }
-        public System.DateTime Fecha { get; set; }
-    
-        public virtual Estado Estado { get; set; }
-        public virtual Plato Plato { get; set; }
-        public virtual Usuario Usuario { get; set; }
+        public int PlatoID { get; set; }
+        public string Descripcion { get; set; }
+        public decimal Precio { get; set; }
+        public Nullable<bool> DisponibleS_N { get; set; }
+        public byte[] Fotografia { get; set; }
+        public string Nombre { get; set; }
     }
 }
